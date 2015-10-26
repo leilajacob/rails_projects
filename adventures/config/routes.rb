@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :toys
-  resources :owners
-  resources :pets
+
+  resources :activities
+  resources :states
   root 'welcome#index'
 
-  get 'contact' => 'welcome#contact'
+  get 'about' => 'welcome#about'
+
+  get 'ilovetocode' => 'love#ilovetocode'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
