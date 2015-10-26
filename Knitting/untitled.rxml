@@ -1,0 +1,540 @@
+prints “This application uses US sizing” 
+
+prints 'is your pattern for a hat, sweater, dress, or sock?'
+
+type = gets.chomp.downcase
+
+#preemie hat size 
+#circumference 12", 30.4cm
+#length (crown to base of ear) 4.25", 11cm
+
+#newborn hat size
+#circumference 14", 35.5cm
+#length (crown to base of ear) 5", 12.5cm
+
+#6mth (baby) hat size
+#circumference 16", 40.5cm
+#length (crown to base of ear) 5.75", 14.5cm
+
+#12mth (toddler) hat size
+#circumference 18", 45.5cm
+#length (crown to base of ear) 6.5", 16.5cm
+
+#child or teenager hat size
+#circumference 20", 50.5cm
+#length (crown to base of ear) 7.25", 18.5cm
+
+#adult hat size
+#circumference 22", 56cm
+#length (crown to base of ear) 8.25", 21cm
+
+#large hat size
+#circumference 24", 61cm
+#length (crown to base of ear) 9.25", 23.5cm
+
+	if (type == hat)
+		prints "What size is your pattern now? [preemie, newborn, 6mnth, 12mnth, child, adult, large]:"
+		size=gets.chomp
+
+			#resizes preemie patterns
+
+			if (size == 'preemie')
+				prints 'enter gauge [how many stitches per inch]'
+				gauge = gets.chomp
+				prints 'How many stitches did you cast on?'
+				P_CO = gets.chomp
+				#multiplies number of stitches in an inch by number of inches in circumference 
+				N_CO = gauge*14
+				CO_6 = gauge*16
+				CO_12 = gauge*18
+				C_CO = gauge*20
+				A_CO = gauge*22
+				L_CO = gauge*24
+				prints "Cast on [#{P_CO}], [#{N_CO}], [#{CO_6}], [#{CO_12}], [#{C_CO}], [#{A_CO}], [#{L_CO}]"
+
+
+
+				prints 'how many rows per inch?'	
+				row_gauge = gets.chomp 
+				prints 'How many rows are in this pattern? [crown to base of ear]:'
+				P_length = gets.chomp
+				prints 'is there a cuff?'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					#code for cuff
+					prints 'How many rows are in your cuff?'
+					cuff = gets.chomp
+					prints "continue in chosen pattern until row #{cuff}"
+				end
+				else 
+					#multiplies number of rows in an inch by number of inches in length (crown to base of ear)
+					N_length = row_gauge*5
+					length_6 = row_gauge*5.75
+					length_12 = row_gauge*6.5
+					C_length = row_gauge*7.25
+					A_length = row_gauge*8.25
+					L_length = row_gauge*9.25
+					prints 'repeat until row [P_length], [N_length], [6_length], [12_length], [C_length], [A_length], [L_length]'										
+				end
+
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+
+				end
+			end
+
+			#resizes newborn patterns
+
+			if (size == 'newborn')
+				prints 'enter gauge [how many stitches per inch]'
+				gauge = gets.chomp
+				prints 'How many stitches did you cast on?'
+				N_CO = gets.chomp
+				#multiplies number of stitches in an inch by number of inches in circumference 
+				P_CO = gauge*12
+				CO_6 = gauge*16
+				CO_12 = gauge*18
+				C_CO = gauge*20
+				A_CO = gauge*22
+				L_CO = gauge*24
+				prints "Cast on [#{P_CO}], [#{N_CO}], [#{CO_6}], [#{CO_12}], [#{C_CO}], [#{A_CO}], [#{L_CO}]"
+
+
+
+				prints 'how many rows per inch?'	
+				row_gauge = gets.chomp 
+				prints 'How many rows are in this pattern? [crown to base of ear]:'
+				N_length = gets.chomp
+				prints 'is there a cuff?'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					#code for cuff
+				end
+				else 
+					#multiplies number of rows in an inch by number of inches in length (crown to base of ear)
+					P_length = row_gauge*4.25
+					length_6 = row_gauge*5.75
+					length_12 = row_gauge*6.5
+					C_length = row_gauge*7.25
+					A_length = row_gauge*8.25
+					L_length = row_gauge*9.25
+					prints 'repeat until row [P_length], [N_length], [6_length], [12_length], [C_length], [A_length], [L_length]'										
+				end
+
+
+
+
+
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+
+				end			
+			end	
+
+			#resizes 6mth patterns
+
+			if (size == '6mth')
+				prints 'enter gauge [how many stitches per inch]'
+				gauge = gets.chomp
+				prints 'How many stitches did you cast on?'
+				CO_6 = gets.chomp
+				#multiplies number of stitches in an inch by number of inches in circumference 
+				P_CO = gauge*12
+				N_CO = gauge*14
+				CO_12 = gauge*18
+				C_CO = gauge*20
+				A_CO = gauge*22
+				L_CO = gauge*24
+				prints "Cast on [#{P_CO}], [#{N_CO}], [#{CO_6}], [#{CO_12}], [#{C_CO}], [#{A_CO}], [#{L_CO}]"
+
+
+
+				prints 'how many rows per inch?'	
+				row_gauge = gets.chomp 
+				prints 'How many rows are in this pattern? [crown to base of ear]:'
+				length_6 = gets.chomp
+				prints 'is there a cuff?'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					#code for cuff
+				end
+				else 
+					#multiplies number of rows in an inch by number of inches in length (crown to base of ear)
+					P_length = row_gauge*4.25
+					N_length = row_gauge*5
+					length_12 = row_gauge*6.5
+					C_length = row_gauge*7.25
+					A_length = row_gauge*8.25
+					L_length = row_gauge*9.25
+					prints 'repeat until row [P_length], [N_length], [6_length], [12_length], [C_length], [A_length], [L_length]'										
+				end
+
+
+
+
+
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+
+				end			
+			end	
+
+			#resizes 12mth patterns
+
+				if (size == '12mth')
+				prints 'enter gauge [how many stitches per inch]'
+				gauge = gets.chomp
+				prints 'How many stitches did you cast on?'
+				CO_12 = gets.chomp
+				#multiplies number of stitches in an inch by number of inches in circumference 
+				P_CO = gauge*12
+				N_CO = gauge*14
+				CO_6 = gauge*16
+				C_CO = gauge*20
+				A_CO = gauge*22
+				L_CO = gauge*24
+				prints "Cast on [#{P_CO}], [#{N_CO}], [#{CO_6}], [#{CO_12}], [#{C_CO}], [#{A_CO}], [#{L_CO}]"
+
+
+
+				prints 'how many rows per inch?'	
+				row_gauge = gets.chomp 
+				prints 'How many rows are in this pattern? [crown to base of ear]:'
+				12_length = gets.chomp
+				prints 'is there a cuff?'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					#code for cuff
+				end
+				else 
+					#multiplies number of rows in an inch by number of inches in length (crown to base of ear)
+					P_length = row_gauge*4.25
+					N_length = row_gauge*5
+					length_6 = row_gauge*5.75
+					C_length = row_gauge*7.25
+					A_length = row_gauge*8.25
+					L_length = row_gauge*9.25
+					prints 'repeat until row [P_length], [N_length], [6_length], [12_length], [C_length], [A_length], [L_length]'										
+				end
+
+
+
+
+
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+
+				end			
+			end	
+
+			#resizes child patterns
+
+				if (size == 'child')
+				prints 'enter gauge [how many stitches per inch]'
+				gauge = gets.chomp
+				prints 'How many stitches did you cast on?'
+				C_CO = gets.chomp
+				#multiplies number of stitches in an inch by number of inches in circumference 
+				P_CO = gauge*12
+				N_CO = gauge*14
+				CO_6 = gauge*16
+				CO_12 = gauge*18
+				A_CO = gauge*22
+				L_CO = gauge*24
+				prints 'Cast on [PCO], [NCO], [6CO], [12CO], [CCO], [ACO], [LCO]'
+
+
+
+				prints 'how many rows per inch?'	
+				row_gauge = gets.chomp 
+				prints 'How many rows are in this pattern? [crown to base of ear]:'
+				C_length = gets.chomp
+				prints 'is there a cuff?'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					#code for cuff
+				end
+				else 
+					#multiplies number of rows in an inch by number of inches in length (crown to base of ear)
+					P_length = row_gauge*4.25
+					N_length = row_gauge*5
+					length_6 = row_gauge*5.75
+					length_12 = row_gauge*6.5
+					A_length = row_gauge*8.25
+					L_length = row_gauge*9.25
+					prints 'repeat until row [P_length], [N_length], [6_length], [12_length], [C_length], [A_length], [L_length]'										
+				end
+
+
+
+
+
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+
+				end			
+			end	
+
+				#resizes adult patterns
+
+				if (size == 'adult')
+				prints 'enter gauge [how many stitches per inch]'
+				gauge = gets.chomp
+				prints 'How many stitches did you cast on?'
+				A_CO = gets.chomp
+				#multiplies number of stitches in an inch by number of inches in circumference 
+				P_CO = gauge*12
+				N_CO = gauge*14
+				CO_6 = gauge*16
+				CO_12 = gauge*18
+				C_CO = gauge*20
+				L_CO = gauge*24
+				prints 'Cast on [PCO], [NCO], [6CO], [12CO], [CCO], [ACO], [LCO]'
+
+
+
+				prints 'how many rows per inch?'	
+				row_gauge = gets.chomp 
+				prints 'How many rows are in this pattern? [crown to base of ear]:'
+				A_length = gets.chomp
+				prints 'is there a cuff?'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					#code for cuff
+				end
+				else 
+					#multiplies number of rows in an inch by number of inches in length (crown to base of ear)
+					P_length = row_gauge*4.25
+					N_length = row_gauge*5
+					length_6 = row_gauge*5.75
+					length_12 = row_gauge*6.5
+					C_length = row_gauge*7.25
+					L_length = row_gauge*9.25
+					prints 'repeat until row [P_length], [N_length], [6_length], [12_length], [C_length], [A_length], [L_length]'										
+				end
+
+
+
+
+
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+
+				end		
+			end	
+
+				#resizes large adult patterns
+
+				if (size == 'large')
+				prints 'enter gauge [how many stitches per inch]'
+				gauge = gets.chomp
+			prints 'How many stitches did you cast on?'
+				L_CO = gets.chomp
+				#multiplies number of stitches in an inch by number of inches in circumference 
+				P_CO = gauge*12
+				N_CO = gauge*14
+				CO_6 = gauge*16
+				CO_12 = gauge*18
+				C_CO = gauge*20
+				A_CO = gauge*22
+				prints 'Cast on [PCO], [NCO], [6CO], [12CO], [CCO], [ACO], [LCO]'
+
+
+
+				prints 'how many rows per inch?'	
+				row_gauge = gets.chomp 
+				prints 'How many rows are in this pattern? [crown to base of ear]:'
+				A_length = gets.chomp
+				prints 'is there a cuff?'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					#code for cuff
+				end
+				else 
+					#multiplies number of rows in an inch by number of inches in length (crown to base of ear)
+					P_length = row_gauge*4.25
+					N_length = row_gauge*5
+					length_6 = row_gauge*5.75
+					length_12 = row_gauge*6.5
+					C_length = row_gauge*7.25
+					A_length = row_gauge*8.25
+					prints 'repeat until row [P_length], [N_length], [6_length], [12_length], [C_length], [A_length], [L_length]'										
+				end
+
+
+
+
+
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+
+				end			
+			end	
+
+	end
+
+	#resizes sweater patterns
+
+	elsif (type == sweater)
+		prints 'What size is your pattern now? [XS, S, M, L, XL]:'
+		size=gets.chomp
+			if (size == 'XS')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+					
+				end				
+			end
+			if (size == 'S')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+					
+				end				
+			end	
+			if (size == 'M')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+					
+				end				
+			end
+			if (size == 'L')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+					
+				end				
+			end
+			if (size == 'XL')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+					
+				end				
+			end
+	end
+
+	elsif (type == dress)
+		prints 'What size is your pattern now? [XS, S, M, L, XL]:'
+		size=gets.chomp
+			if (size == 'XS')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+					
+				end				
+			end
+			if (size == 'S')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+				prints 'does your pattern have a repeating cable? [Yes, No]'
+				answer = gets.chomp.downcase
+				if (answer == yes)
+					prints 'please enter cable row'
+				end
+				else 
+					
+				end				
+			end	
+			if (size == 'M')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+
+			end
+			if (size == 'L')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+			end
+			if (size == 'XL')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+			end
+	end
+
+	elsif (type == sock)
+		prints 'What size is your pattern now? [XS, S, M, L, XL]:'
+		size=gets.chomp
+			if (size == 'XS')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+			end
+			if (size == 'S')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+			end	
+			if (size == 'M')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+			end
+			if (size == 'L')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+			end
+			if (size == 'XL')
+				prints 'enter gauge [## sts, ## rows,/4]'
+				gauge = gets.chomp
+			end
+	end
+
+	else
+		prints "I'm sorry, type is not currently available for conversion."
+	end 
