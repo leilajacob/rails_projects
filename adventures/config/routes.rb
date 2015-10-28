@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :states
   root 'welcome#index'
 
+  get 'ilovetocode' => 'welcome#about'
+
   get 'about' => 'welcome#about'
+
+  get 'contact' => 'welcome#contact'
 
   get 'ilovetocode' => 'love#ilovetocode'
 
