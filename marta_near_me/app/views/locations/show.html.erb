@@ -3,7 +3,7 @@
 <h2>You Are Currently Standing At...</h2>
 
 <p>
-	<strong>Address:</strong>
+  <strong>Address:</strong>
   <%= @location.my_location %>
 </p>
 
@@ -11,61 +11,48 @@
 
 <% if @bus_count == 0 %>
 	<p>
-		Sorry, there are no buses nearby. It may be best to just use Uber.
+		Sorry, no buses nearby. Better request an Uber.
 	</p>
 <% else %>
 	<% @nearby_buses.each_with_index do |bus, index| %>
 		<strong>Route</strong>: <%= bus["ROUTE"] %><br />
-		<strong>Vehicle #</strong>: <%= bus["VEHICLE"] %><br />
-		<strong>Next Stop:</strong>: <%= bus["TIMEPOINT"] %><br />
+		<strong>Vehicle</strong>: <%= bus["VEHICLE"] %><br />
+		<strong>Next Stop</strong>: <%= bus["TIMEPOINT"] %><br />
 
 		<script>
-		$(document).ready(function (){
-
-	    function initialize() {
-
-	    	var myLatLng = new google.maps.LatLng(<%= @location.latitude %>, <%= @location.longitude %>);
-	    	var busLatLng = new google.maps.LatLng(<%= bus["LATITUDE"] %>, <%= bus["LONGITUDE"] %>);
-
-	      var mapOptions = {
-	      center: myLatLng,
-	      zoom: 12, 
-	      scrollwheel: false
-	      };
-	        
-	      var map = new google.maps.Map(document.getElementById('map-canvas<%= index %>'), mapOptions);
-
-	      var contentString = "<h3> It's a bus! </h3>"
-
-	      var infoWindow = new google.maps.InfoWindow({content: contentString});
-
-	    	var marker = new google.maps.Marker({
-	      position: busLatLng,
-	      map: map,
-	      animation: google.maps.Animation.BOUNCE,
-	      title: "Nearby bus"
-	  		});
-
-
-	      google.maps.event.addListener(marker, 'click', function() {
-	    infoWindow.open(map,marker);
-	 });
-
-	    
-	    google.maps.event.addDomListener(window, 'load', initialize);
-	});
-	}
-</script>
-
-
+			$(document).ready(function (){
+			  function initialize() {
+			  	var myLatLng = new google.maps.LatLng(<%= @location.latitude %>, <%= @location.longitude %>);
+			  	var busLatLng = new google.maps.LatLng(<%= bus["LATITUDE"] %>, <%= bus["LONGITUDE"] %>);
+			    var mapOptions = {
+				    center: myLatLng,
+				    zoom: 14,
+				    scrollwheel: false
+			    };
+			      
+			    var map = new google.maps.Map(document.getElementById('map-canvas<%= index %>'), mapOptions);
+			    var marker = new google.maps.Marker({
+					  position: busLatLng,
+					  map: map,
+					  title: 'Nearby bus',
+					  animation: google.maps.Animation.BOUNCE
+					});
+					var contentString = "<h3> It's a bus! </h3>";
+					var infoWindow = new google.maps.InfoWindow({
+						content: contentString
+					});
+					google.maps.event.addListener(marker, 'click', function() {
+			    	infoWindow.open(map,marker);
+			 		});
+			  	
+			  }
+			    
+			  google.maps.event.addDomListener(window, 'load', initialize);
+			});
+		</script>
+		<div id="map-canvas<%= index %>" class="bus-map"></div>
 
 	<% end %>
-	<div id="map-canvas<%= index %>" class="bus-map"></div>
 <% end %>
 
-
-
-
-<%= link_to "Actually, I'm at...", edit_location_path(@location) %> |
-
-
+<%= link_to "Actually, I'm at...", edit_location_path(@location) %>
